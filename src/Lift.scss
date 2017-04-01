@@ -1,0 +1,281 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote {
+  &:before, &:after {
+    content: '';
+    content: none; } }
+
+q {
+  &:before, &:after {
+    content: '';
+    content: none; } }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+
+
+
+
+/**
+ * 
+ * lift
+ * 
+ */
+
+$primary-color: #f26531;
+$text-color: #231f20;
+$padding:18px;
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  text-transform: lowercase;
+  color: $text-color;
+  background: $primary-color;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.lift-app {
+  padding:$padding;
+}
+
+.lift-header {
+  padding-bottom:$padding*4;
+
+  h1 {
+    padding-top:$padding*2;
+    padding-left:$padding;
+    border-top:8px solid $text-color;
+    font-size:42px;
+    font-weight:800;
+    line-height:42px;
+
+    a.active {
+      color:#fff;
+    }
+
+  }
+
+  nav {
+    padding-left:$padding;
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      font-size:16px;
+      font-weight:400;
+      line-height:22px;
+
+      &.active {
+        color:#fff;
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width: 736px) {
+  .lift-header {
+    padding-bottom:$padding*1;
+    h1 {
+      padding-top:$padding*1;
+    }
+  }
+}
+
+
+.lift-hero {
+  border-top: 4px solid $text-color;
+  width:66%;
+
+  h2 {
+    display:block;
+    margin-top:36px;
+    font-size:54px;
+    font-weight:600;
+  }
+}
+
+
+.lift-calculator {
+  padding-left:$padding;
+  padding-right:$padding;
+  border-top:4px solid $text-color;
+
+  @media (min-width: 736px) {
+    display:flex;
+    width:66%;
+  }
+
+  h2 {
+    display:none;
+  }
+
+
+  .input-col {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 60%;
+    margin-top:$padding*2;
+  }
+
+  .output-col {
+    margin-top:$padding*2;
+  }
+  
+  .text-box,
+  .gender-box,
+  .time-box {
+    flex: 1 1 50%;
+  }
+
+  .weird-wrapper {
+    display:inherit; /* KEEP THIS. GAWD KNOWS WHY. */
+  }
+  
+  .weird-wrapper:not(:first-child) label {
+    display:none !important;
+  }
+
+  .text-box label,
+  .gender-box label,
+  .time-box label,
+  .value-box label {
+    display:block;
+    margin:0;
+    padding:0;
+    margin-left:2px;
+    font-size:16px;
+
+    @media (max-width: 736px) {
+      margin-top:$padding*1;
+    }
+
+  }
+
+  .text-box input {
+    display:block;
+    width:100%;
+    border:0;
+    padding:0;
+    font-size:68px;
+    font-weight:700;
+    line-height:68px;
+    outline:none;
+    cursor:pointer;
+    color:$text-color;
+    background:none;
+  }
+
+  .value-box .value {
+    font-size:136px;
+    font-weight:bold;
+    font-weight:900;
+    font-kerning:none;
+    letter-spacing:-2px;
+    line-height:136px;
+    color:$text-color;
+    user-select: none;
+  }
+
+  .gender-box {
+    div {
+      font-size:64px;
+      font-weight:700;
+      line-height:68px;
+    }
+    .value {
+      cursor:pointer;
+      opacity:0.55;
+      &.active {
+        opacity:1;
+      }
+    }
+    .separator {
+      // display:none;
+      opacity:0.075;
+    }
+
+  }
+
+  .time-box input {
+    display:block;
+    width:100%;
+    border:0;
+    padding:0;
+    font-size:64px;
+    font-weight:700;
+    line-height:68px;
+    outline:none;
+    cursor:pointer;
+    color:$text-color;
+    // background:none;
+  }
+
+  .time-box span {
+    // display:none;
+    font-size:68px;
+    font-weight:700;
+    line-height:68px;
+    background:blue;
+  }
+
+  .time-box .cont {
+    display:flex;
+    // flex-direction:row;
+    background:green;
+  }
+  .time-box * {
+    flex-grow:1;
+    flex-shrink:1;
+  }
+
+  .control {
+      padding-left:$padding*0.25;
+      padding-right:$padding*0.25;
+      font-size:28px;
+      font-weight:900;
+      cursor:pointer;
+      user-select: none;
+  }
+
+}
